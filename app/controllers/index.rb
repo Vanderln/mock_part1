@@ -56,3 +56,29 @@ post '/users' do
     erb :sign_up
   end
 end
+
+get '/user/:user_id/edit' do
+  # p params[:user_id]
+  user = User.find(current_user.id)
+  
+  erb :edit_skills, :locals => {:trueuser => params[:user_id] }
+end
+
+post '/edit_skill/:skill_id' do
+  skill = Skill.find_by_id(params[:skill_id])
+  skill.update_attributes(:name => params[:post][:name], :context => params[:post][:context])
+  skill.proficiencies.first.update_attributes(:formal => params[:post][:formal], :years => params[:post][:years])
+  redirect '/'
+end
+
+post '/new_skill' do
+  # p params.inspect
+  skill = Skill.create(:name => params[:post][:name], :context => params[:post][:context])
+  # prof = Proficiency.create(:formal => params[:post][:formal], :years => params[:post][:years])
+  # skill.proficiencies << prof
+  p "made it"
+  # redirect '/'
+end
+
+
+

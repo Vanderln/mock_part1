@@ -1,0 +1,22 @@
+<div class ="container">
+
+ <%if current_user.id%>
+<h1> <%=current_user.name%></h1>
+<h1> Edit skills here!</h1>
+
+<%current_user.skills.each do |skill|%>
+<form action='/edit_skill/<%=skill.id%>' method="post">
+  Skill name: <input type="text" name="post[name]" value="<%=skill.name%>">
+  Context :<input type="text" name="post[context]" value="<%=skill.context%>"><br>
+  Formally educated? : <input type="text" name="post[formal]" value="<%=skill.proficiencies.first.formal%>">
+  Years : <input type="text" name="post[years]" value="<%=skill.proficiencies.first.years%>">
+  <input type="submit" value="Edit!">
+  
+  </form>
+  <%end%>
+  
+<%else%>
+<h1> You can't edit these skills</h1>
+
+<%end%>
+</div>

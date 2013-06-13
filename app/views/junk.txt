@@ -1,0 +1,16 @@
+<table>
+      <td>Name
+      <tr></tr>
+    </td>
+    
+
+    <td>Skill
+      <tr><%=skill.name%><%=skill.context%></tr>
+    </td>
+    <td>Years
+      <tr><%=skill.years%></tr>
+    </td>
+    <td>Formal
+      <tr><%=skill.formal%></tr>
+    </td>
+</table>
