@@ -71,14 +71,7 @@ post '/edit_skill/:skill_id' do
   redirect '/'
 end
 
-post '/new_skill' do
-  # p params.inspect
-  skill = Skill.create(:name => params[:post][:name], :context => params[:post][:context])
-  # prof = Proficiency.create(:formal => params[:post][:formal], :years => params[:post][:years])
-  # skill.proficiencies << prof
-  p "made it"
-  # redirect '/'
-end
+
 
 
 
